@@ -5,8 +5,8 @@ pipeline {
         DOCKER_TAG = "latest"
         DOCKER_REPO = "pravalikaa18/my-jenkins-app"
         DOCKER_CREDENTIALS_ID = "395ce1a5-6982-4c78-9994-4a2e8dbce27a" // Jenkins credentials ID
-        CONTAINER_NAME = "mycontainer1"
-        CONTAINER_NAME1 = "mycontainer2"
+        CONTAINER_NAME = "mycontainer3"
+        CONTAINER_NAME1 = "mycontainer4"
 
     }
     stages {
@@ -40,7 +40,7 @@ pipeline {
                         docker ps -a -q --filter name=${CONTAINER_NAME} | xargs -r docker rm || true
 
                         # Run new container
-                        docker run -d -p 8082:80 --name ${CONTAINER_NAME} ${DOCKER_IMAGE}:${DOCKER_TAG}
+                        docker run -d -p 8083:80 --name ${CONTAINER_NAME} ${DOCKER_IMAGE}:${DOCKER_TAG}
                     """
                 }
             }
